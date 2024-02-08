@@ -21,65 +21,71 @@ class Chandrayaan {
 
   addInput(char) {
     if (!['f', 'b', 'l', 'r', 'u', 'd'].includes(char)) {
-      console.log('Invalid Character');
+      console.log('Invalid Characters');
     } else {
       this.inputs.push(char);
     }
   }
 
+  addPosition(key) {
+    this.position[key] = this.position[key] + 1
+  }
+
+  substractPosition(key) {
+    this.position[key] = this.position[key] - 1
+  }
+
   runChandrayaan() {
+    console.log(this.inputs)
     this.inputs.forEach(item => {
       switch (item) {
         case 'f':
-          console.log('Forward')
           switch (this.direction) {
             case 'N':
-              this.position.y = this.position.y + 1
+              this.addPosition('y')
               break
             case 'S':
-              this.position.y = this.position.y - 1
+              this.substractPosition('y')
               break
             case 'E':
-              this.position.x = this.position.x + 1
+              this.addPosition('x')
               break
             case 'W':
-              this.position.x = this.position.x - 1
+              this.substractPosition('x')
               break
             case 'U':
-              this.position.z = this.position.z + 1
+              this.addPosition('z')
               break
             case 'D':
-              this.position.z = this.position.z - 1
+              this.substractPosition('z')
               break
             default:
           }
           break;
         case 'b':
-          console.log('Backward')
           switch (this.direction) {
             case 'N':
-              this.position.y = this.position.y - 1
+              this.substractPosition('y')
               break
             case 'S':
-              this.position.y = this.position.y + 1
+              this.addPosition('y')
               break
             case 'E':
-              this.position.x = this.position.x - 1
+              this.substractPosition('x')
               break
             case 'W':
-              this.position.x = this.position.x + 1
+              this.addPosition('x')
               break
             case 'U':
-              this.position.z = this.position.z - 1
+              this.substractPosition('z')
               break
             case 'D':
-              this.position.z = this.position.z + 1
+              this.addPosition('z')
               break
             default:
           }
           break;
         case 'l':
-          console.log('Left')
           switch (this.direction) {
             case 'N':
               this.direction = 'W'
@@ -101,9 +107,10 @@ class Chandrayaan {
               break
             default:
           }
+          // console.log('Left')
+          console.log('this.direction', this.direction)
           break;
         case 'r':
-          console.log('Right')
           switch (this.direction) {
             case 'N':
               this.direction = 'E'
@@ -125,17 +132,16 @@ class Chandrayaan {
               break
             default:
           }
+          // console.log('Right')
           break;
         case 'u':
-          console.log('Up')
           this.direction = 'U'
           break;
         case 'd':
-          console.log('Down')
           this.direction = 'D'
           break;
         default:
-        // my code
+        // code block
       }
     });
   }
@@ -143,7 +149,6 @@ class Chandrayaan {
 }
 
 a = new Chandrayaan();
-
 a.addInput('f')
 a.addInput('r')
 a.addInput('u')
@@ -152,9 +157,6 @@ a.addInput('l')
 
 a.runChandrayaan();
 
-console.log('getInputs', a.getInputs())
+// console.log('getInputs', a.getInputs())
 console.log('getDirection => ', a.getDirection())
-console.log('getPosition => ', a.getPosition())
-
-
-
+console.log('getPosition => ', Object.values(a.getPosition()))
