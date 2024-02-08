@@ -80,15 +80,59 @@ class Chandrayaan {
           break;
         case 'l':
           console.log('Left')
+          switch (this.direction) {
+            case 'N':
+              this.direction = 'W'
+              break
+            case 'S':
+              this.direction = 'E'
+              break
+            case 'E':
+              this.direction = 'N'
+              break
+            case 'W':
+              this.direction = 'S'
+              break
+            case 'U':
+              this.direction = 'N'
+              break
+            case 'D':
+              this.direction = 'S'
+              break
+            default:
+          }
           break;
         case 'r':
           console.log('Right')
+          switch (this.direction) {
+            case 'N':
+              this.direction = 'E'
+              break
+            case 'S':
+              this.direction = 'W'
+              break
+            case 'E':
+              this.direction = 'S'
+              break
+            case 'W':
+              this.direction = 'N'
+              break
+            case 'U':
+              this.direction = 'S'
+              break
+            case 'D':
+              this.direction = 'N'
+              break
+            default:
+          }
           break;
         case 'u':
           console.log('Up')
+          this.direction = 'U'
           break;
         case 'd':
           console.log('Down')
+          this.direction = 'D'
           break;
         default:
         // my code
