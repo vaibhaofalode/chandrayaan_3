@@ -26,7 +26,34 @@ class Chandrayaan {
       this.inputs.push(char);
     }
   }
-  
+
+  runChandrayaan() {
+    this.inputs.forEach(item => {
+      switch (item) {
+        case 'f':
+          console.log('Forward')
+          break;
+        case 'b':
+          console.log('Backward')
+          break;
+        case 'l':
+          console.log('Left')
+          break;
+        case 'r':
+          console.log('Right')
+          break;
+        case 'u':
+          console.log('Up')
+          break;
+        case 'd':
+          console.log('Down')
+          break;
+        default:
+        // my code
+      }
+    });
+  }
+
 }
 
 a = new Chandrayaan();
@@ -37,8 +64,11 @@ a.addInput('u')
 a.addInput('b')
 a.addInput('l')
 
+
 console.log('getInputs', a.getInputs())
 console.log('getDirection => ', a.getDirection())
 console.log('getPosition => ', a.getPosition())
+
+a.runChandrayaan();
 
 
